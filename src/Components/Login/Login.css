@@ -1,0 +1,29 @@
+.login-container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #c7c7c7;
+    flex-direction: column;
+}
+.login-form{
+    width: 50%;
+    padding: 30px;border-radius: 11px;
+    background: #c7c7c7;
+    box-shadow: inset 5px 5px 11px #5e5e5e,
+                inset -5px -5px 11px #ffffff;
+}
+.signUp-form{
+    align-items: inherit;
+}
+.input{
+    outline:none;
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+.login-container h6{
+    color: red;
+    margin-top: 30px;
+}

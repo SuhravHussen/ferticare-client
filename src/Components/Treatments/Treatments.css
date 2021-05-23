@@ -1,0 +1,27 @@
+.treatments-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 14px;
+    margin: 50px 0px;
+    width: 60%;
+    color: darkmagenta;
+}
+.treatments{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.single-treatment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.single-treatment img{
+    height: 150px;
+}
