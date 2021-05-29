@@ -18,10 +18,10 @@ export const userContext  = createContext({})
 function App() {
  
   const [userInfo , setUserInfo] = useState({})
-  const [bookingInfo , setBookingInfo] = useState({})
+
 
   return (
-   <userContext.Provider value={[userInfo , setUserInfo , bookingInfo]}>
+   <userContext.Provider value={[userInfo , setUserInfo]}>
     <Router>
       <Switch>
       <PrivateRoute exact path="/">

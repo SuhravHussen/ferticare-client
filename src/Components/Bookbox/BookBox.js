@@ -19,6 +19,11 @@ const BookBox = () => {
   const [userInfo] = useContext(userContext);
 
   const onSubmit = (data) => {
+    
+    if (startDate== null) {
+      alert('please select a date')
+    }
+
     const newBooking = {
       name: userInfo.userName,
       email: userInfo.email,
@@ -29,17 +34,26 @@ const BookBox = () => {
         infertility: data.Infertility,
       },
     };
+   
+   if (data.IUI || data.IVF || data.Infertility) {
+      fetchData()
+   }else{
+     alert('please select at least one service and time')
+     
+   }
+ };
 
-    fetch("https://secure-forest-43490.herokuapp.com/addOrder", {
+  const fetchData =(newData)=>{
+      fetch("https://secure-forest-43490.herokuapp.com/addOrder", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(newBooking),
+      body: JSON.stringify(newData),
     }).then((res) => {
       setTreatments([]);
       console.log(res);
       toast(`Successfully added your booking at ${startDate.toString()}`);
     });
-  };
+  }
 
   return (
     <div className="booking-container">
@@ -100,7 +114,7 @@ const BookBox = () => {
               })}
             />
           </div>
-          <input className="button" type="submit" />
+       <button className="button" type="submit"> Book Consultation </button>
         </form>
       </div>
     </div>

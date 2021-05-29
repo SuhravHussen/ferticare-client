@@ -50,8 +50,16 @@ form{
 .button{
     margin-top: 15px;
     border: none;
-    width: 100px;
-    padding: 5px;
+    width: auto;
+    padding: 10px;
+    font-size: 20px;
     color: white;
     background-color:#F45C99 ;
+    transition: 0.2s linear;
+}
+.button:hover{
+    outline: #F45C99;
+    color: #F45C99;
+    background: white;
+    border: #F45C99 2px solid;
 }
