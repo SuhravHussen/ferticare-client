@@ -10,6 +10,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { userContext } from "../../App";
+import { useDispatch, useSelector } from 'react-redux';
+import { sendTOserver } from "../../redux/slices/bookSlice";
 
 const BookBox = () => {
   const [startDate, setStartDate] = useState(null);
@@ -17,13 +19,15 @@ const BookBox = () => {
   const [treatments, setTreatments] = useState({});
 
   const [userInfo] = useContext(userContext);
+  
+  const dispatch = useDispatch()
+  const serverResponse = useSelector((state)=> state.booking.addBooking)
 
   const onSubmit = (data) => {
     
     if (startDate== null) {
       alert('please select a date')
     }
-
     const newBooking = {
       name: userInfo.userName,
       email: userInfo.email,
@@ -36,24 +40,31 @@ const BookBox = () => {
     };
    
    if (data.IUI || data.IVF || data.Infertility) {
-      fetchData()
+     dispatch(sendTOserver(newBooking))
+
    }else{
-     alert('please select at least one service and time')
-     
+     alert('please select at least one service')  
    }
+
+   if (serverResponse) {
+    toast(`Successfully added your booking at ${startDate.toString()}`);
+  }
  };
 
-  const fetchData =(newData)=>{
-      fetch("https://secure-forest-43490.herokuapp.com/addOrder", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(newData),
-    }).then((res) => {
-      setTreatments([]);
-      console.log(res);
-      toast(`Successfully added your booking at ${startDate.toString()}`);
-    });
-  }
+
+
+
+  // const fetchData =(newData)=>{
+  //     fetch("https://secure-forest-43490.herokuapp.com/addOrder", {
+  //     method: "POST",
+  //     headers: { "content-type": "application/json" },
+  //     body: JSON.stringify(newData),
+  //   }).then((res) => {
+  //     setTreatments([]);
+  //     console.log(res);
+  //     toast(`Successfully added your booking at ${startDate.toString()}`);
+  //   });
+  // }
 
   return (
     <div className="booking-container">
