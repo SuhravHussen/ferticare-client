@@ -1,0 +1,37 @@
+@import "../../CommonScss/colors";
+
+.web-menu{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px auto;     
+    align-items: center;
+    width: 80%;
+    color: $secondaryColor;
+    ul{
+        .navlink{
+            text-decoration: none;
+        }
+        li{
+            display: inline;
+            margin: 10px 10px;
+            font-weight: 700;
+        }
+    }
+    span{
+        color: $primaryColor;
+    }
+    h1{
+        font-size: 40px ;
+    }
+
+}
+
+
+
+
+
+@media only screen and (max-width: 980px) {
+    .web-menu{
+      display: none;
+    }
+  }

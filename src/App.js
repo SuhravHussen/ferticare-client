@@ -31,6 +31,9 @@ function App() {
           <Login/>
         </Route>
       </Switch>
+      <Route path='/contact'>
+          <Home/>
+        </Route>
     </Router>
     </userContext.Provider> 
   );

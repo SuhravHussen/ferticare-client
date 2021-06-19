@@ -1,5 +1,6 @@
 import React from 'react';
-import BookBox from '../Bookbox/BookBox';
+import BookBox from '../BookBox/BookBox';
+
 import FertilityDetails from '../FertilityDetails/FertilityDetails';
 import Menu from '../Menu/Menu';
 import Services from '../Services/Services';

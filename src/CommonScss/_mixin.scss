@@ -1,0 +1,15 @@
+@import './colors';
+
+@mixin headerText($size){
+color: $secondaryColor;
+font-size: $size;
+text-align: center;
+}
+
+@mixin  primaryButton ($padding, $size){
+    color: white;
+    background-color: $primaryColor;
+    border: none;
+    padding: $padding;
+    font-size: $size;
+}
